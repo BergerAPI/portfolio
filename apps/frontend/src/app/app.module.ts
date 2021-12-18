@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import { AngularFullpageModule } from '@fullpage/angular-fullpage';
-
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -14,7 +12,6 @@ import { AngularFullpageModule } from '@fullpage/angular-fullpage';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
     ], { initialNavigation: 'enabledBlocking' }),
-    AngularFullpageModule
   ],
   providers: [],
   bootstrap: [AppComponent],
