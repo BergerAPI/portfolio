@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  fullpage: any;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  getRef(fullPageRef: any) {
+    this.fullpage = fullPageRef;
   }
 
 }
