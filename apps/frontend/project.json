@@ -1,24 +1,21 @@
 {
   "projectType": "application",
-  "root": "apps/portfolio",
-  "sourceRoot": "apps/portfolio/src",
-  "prefix": "portfolio",
+  "root": "apps/frontend",
+  "sourceRoot": "apps/frontend/src",
+  "prefix": "frontend",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/portfolio",
-        "index": "apps/portfolio/src/index.html",
-        "main": "apps/portfolio/src/main.ts",
-        "polyfills": "apps/portfolio/src/polyfills.ts",
-        "tsConfig": "apps/portfolio/tsconfig.app.json",
+        "outputPath": "dist/apps/frontend",
+        "index": "apps/frontend/src/index.html",
+        "main": "apps/frontend/src/main.ts",
+        "polyfills": "apps/frontend/src/polyfills.ts",
+        "tsConfig": "apps/frontend/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/portfolio/src/favicon.ico",
-          "apps/portfolio/src/assets"
-        ],
-        "styles": ["apps/portfolio/src/styles.scss"],
+        "assets": ["apps/frontend/src/favicon.ico", "apps/frontend/src/assets"],
+        "styles": ["apps/frontend/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -37,8 +34,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/portfolio/src/environments/environment.ts",
-              "with": "apps/portfolio/src/environments/environment.prod.ts"
+              "replace": "apps/frontend/src/environments/environment.ts",
+              "with": "apps/frontend/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -58,10 +55,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "portfolio:build:production"
+          "browserTarget": "frontend:build:production"
         },
         "development": {
-          "browserTarget": "portfolio:build:development"
+          "browserTarget": "frontend:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -69,23 +66,23 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "portfolio:build"
+        "browserTarget": "frontend:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/portfolio/src/**/*.ts",
-          "apps/portfolio/src/**/*.html"
+          "apps/frontend/src/**/*.ts",
+          "apps/frontend/src/**/*.html"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/portfolio"],
+      "outputs": ["coverage/apps/frontend"],
       "options": {
-        "jestConfig": "apps/portfolio/jest.config.js",
+        "jestConfig": "apps/frontend/jest.config.js",
         "passWithNoTests": true
       }
     }
