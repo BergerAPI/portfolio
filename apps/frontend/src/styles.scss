@@ -1,5 +1,27 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+  padding: 0;
+
+  --primary-color: #fe64a3;
+  --background: #f9f6e7;
+  --text-color: #575757;
+  --navbar-height: 50px;
+  --default-padding: 20px;
+}

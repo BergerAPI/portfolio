@@ -1,0 +1,16 @@
+button {
+  /* empty but borders, on hover fill the button */
+  display: block;
+  border: 1px solid var(--text-color);
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  color: var(--text-color);
+
+  /* on hover, fill the button */
+  transition: background-color 300ms;
+
+  &:hover {
+    background-color: var(--text-color);
+    color: var(--background);
+  }
+}

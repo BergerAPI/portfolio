@@ -1,15 +1,10 @@
-.content {
-  --background: #f9f6e7;
-  --text-color: #575757;
-  --navbar-height: 50px;
-  --default-padding: 20px;
-
+#content {
   background-color: var(--background);
-  width: 100vw;
-  height: 100vh;
 
   padding-left: var(--default-padding);
   padding-right: var(--default-padding);
+
+  width: 100vw;
 }
 
 .navbar {
@@ -55,6 +50,7 @@
 p,
 h1,
 a {
+  font-size: min(20px, 5vw);
   color: var(--text-color);
   font-family: 'Neue Machina', sans-serif;
 }
@@ -64,13 +60,153 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
 
   h1 {
     font-size: min(100px, 10vw);
   }
 
   p {
-    font-size: min(50px, 5vw);
+    color: var(--primary-color);
+  }
+
+  frontend-button {
+    font-size: min(50px, 2vw);
+  }
+}
+
+#about {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+
+  /* we need a big responsive space from left and right */
+  padding-left: min(500px, 20vw);
+  padding-right: min(500px, 20vw);
+
+  flex-direction: column;
+
+  h1 {
+    /* Big font */
+    font-size: min(100px, 5vw);
+  }
+
+  span {
+    color: var(--primary-color);
+  }
+
+  /* If the device is not a small device */
+  @media (min-width: 750px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .big-text {
+      /* Big font */
+      font-size: min(100px, 5vw);
+      line-height: min(100px, 5vw);
+      font-weight: bold;
+    }
+
+    .text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 90px;
+    }
+  }
+}
+
+#fiverr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: min(75px, 10vw);
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+#work {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: min(75px, 10vw);
+  }
+
+  p {
+    text-align: center;
+  }
+
+  gap: var(--default-padding);
+}
+
+#footer {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 1px solid var(--text-color);
+
+  @media (min-width: 1200px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  h1 {
+    text-decoration: dotted underline;
+  }
+
+  a {
+    /* Multiple lines */
+    display: block;
+  }
+
+  a,
+  p,
+  h1 {
+    font-size: min(25px, 2vw);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  a:hover,
+  p:hover {
+    color: var(--primary-color);
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: min(50px, 7vw);
+
+    @media (min-width: 750px) {
+      border-left: 1px solid var(--text-color);
+      padding-left: min(50px, 7vw);
+
+      border-right: 1px solid var(--text-color);
+      padding-right: min(50px, 7vw);
+    }
+
+    @media (max-width: 500px) {
+      flex-wrap: wrap;
+    }
   }
 }
