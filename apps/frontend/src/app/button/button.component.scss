@@ -4,7 +4,6 @@ button {
   border: 1px solid var(--text-color);
   border-radius: 0.5em;
   padding: 0.5em 1em;
-  color: var(--text-color);
 
   /* on hover, fill the button */
   transition: background-color 300ms;
@@ -13,4 +12,6 @@ button {
     background-color: var(--text-color);
     color: var(--background);
   }
+
+  color: var(--text-color);
 }

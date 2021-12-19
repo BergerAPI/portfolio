@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 *,
 ::before,
@@ -15,10 +17,6 @@
 }
 
 body {
-  margin: 0;
-  line-height: inherit;
-  padding: 0;
-
   --primary-color: #fe64a3;
   --background: #f9f6e7;
   --text-color: #575757;

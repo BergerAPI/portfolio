@@ -1,10 +1,10 @@
 #content {
   background-color: var(--background);
 
-  padding-left: var(--default-padding);
-  padding-right: var(--default-padding);
+  padding-left: max(var(--default-padding), var(--navbar-height));
+  padding-right: max(var(--default-padding), var(--navbar-height));
 
-  width: 100vw;
+  width: 100%;
 }
 
 .navbar {
@@ -57,20 +57,59 @@ a {
 
 #home {
   height: calc(100vh - var(--navbar-height));
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
-  h1 {
-    font-size: min(100px, 10vw);
+  .left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    span,
+    p {
+      color: var(--primary-color);
+    }
+
+    h1 {
+      font-size: min(100px, 10vw);
+      line-height: min(100px, 10vw);
+    }
+
+    frontend-button {
+      margin-top: 1rem;
+      font-size: min(50px, 2vw);
+    }
   }
 
-  p {
-    color: var(--primary-color);
-  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: end;
 
-  frontend-button {
-    font-size: min(50px, 2vw);
+    @media (max-width: 1100px) {
+      display: none;
+    }
+
+    h1 {
+      font-size: min(75px, 10vw);
+    }
+
+    p {
+      font-size: min(20px, 5vw);
+      font-weight: 700;
+
+      text-decoration: dotted underline;
+      transition: color 300ms;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
   }
 }
 
