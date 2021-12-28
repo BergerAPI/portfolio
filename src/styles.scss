@@ -1,0 +1,28 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+body {
+  --primary-color: #fe64a3;
+  --background: #f9f6e7;
+  --text-color: #575757;
+  --navbar-height: 50px;
+  --default-padding: 20px;
+
+  background-color: var(--background);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
