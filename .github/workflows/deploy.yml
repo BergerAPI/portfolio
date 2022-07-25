@@ -22,7 +22,7 @@ jobs:
     - name: Run build task
       run: npm run build --if-present
     - name: Replace everything with the dist folder
-      run: find . -maxdepth 1 ! -name dist -delete && cp -r ./dist/* . && rm -rf ./dist/
+      run: find . -maxdepth 1 ! -name dist ! -name . | xargs rm -rf && cp -r ./dist/* . && rm -rf ./dist/
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
