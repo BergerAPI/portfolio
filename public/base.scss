@@ -3,6 +3,7 @@
   src: url("./fonts/AllianceNo1-Bold.woff2");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,11 +11,13 @@
   src: url("./fonts/AllianceNo1-Regular.woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Jaune Variable";
   src: url("./fonts/Jaunev0.6GX.ttf");
+  font-display: swap;
 }
 
 $background-color: rgb(17, 17, 17);
