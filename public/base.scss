@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Alliance";
+  src: url("./fonts/AllianceNo1-Bold.woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Alliance";
+  src: url("./fonts/AllianceNo1-Regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jaune Variable";
+  src: url("./fonts/Jaunev0.6GX.ttf");
+}
+
+$background-color: rgb(17, 17, 17);
+$border-color: rgba(255, 255, 255, 0.1);
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0 auto;
+  background-color: $background-color;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Alliance", sans-serif;
+}
+
+a,
+p,
+h1,
+h2,
+h3 {
+  color: white;
+  text-decoration: none;
+}
