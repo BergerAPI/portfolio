@@ -7,7 +7,7 @@ export const NavigationWrapper = ({
     href?: string, linkText?: string
 }) => {
     return (
-        <div className="lg:grid lg:grid-cols-[theme(spacing.24)_theme(screens.sm)_theme(spacing.24)] lg:gap-0 flex flex-col gap-4">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[theme(spacing.24)_theme(screens.sm)_theme(spacing.24)] lg:gap-0 ">
             <nav>
                 {(href && linkText) && (
                     <Link href={href}>

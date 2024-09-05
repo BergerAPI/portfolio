@@ -1,14 +1,6 @@
 import { NavigationWrapper } from "@/components/navigation-wrapper";
 import Link from "next/link";
-import { PropsWithChildren } from "react";
-
-const Highlight = ({ children }: PropsWithChildren) => {
-  return <strong className="font-serif tracking-tighter italic">{children}</strong>
-}
-
-const Text = ({ children }: PropsWithChildren) => {
-  return <p className="leading-8 tracking-tight font-medium">{children}</p>
-}
+import { Highlight, Text } from "@/components/text";
 
 export default function Home() {
   return (

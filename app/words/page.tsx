@@ -1,25 +1,31 @@
 import { NavigationWrapper } from "@/components/navigation-wrapper";
+import { getSortedPostsData } from "@/lib/markdown";
 import Link from "next/link";
-import { PropsWithChildren } from "react";
+import { Highlight, Text } from "@/components/text";
 
-const Highlight = ({ children }: PropsWithChildren) => {
-    return <strong className="font-serif tracking-tighter italic">{children}</strong>
-}
+export default async function Words() {
+    const posts = getSortedPostsData();
 
-const Text = ({ children }: PropsWithChildren) => {
-    return <p className="leading-8 tracking-tight font-medium">{children}</p>
-}
-
-export default function Words() {
     return (
-        <main className="flex justify-center">
+        <main className="lg:flex justify-center">
             <NavigationWrapper linkText="Home" href="/">
-                <h1 className="font-bold tracking-tighter font-serif italic">My words</h1>
+                <div className="w-full">
+                    <h1 className="font-bold tracking-tighter font-serif italic">My words</h1>
 
-                <Text>
-                    Find out some interesting stuff here.
-                </Text>
+                    <Text>
+                        Find out some interesting stuff here.
+                    </Text>
+
+                    <div className="grid mt-2 gap-2 grid-cols-1 sm:grid-cols-2">
+                        {posts.map(post =>
+                            <Link key={post.title} href={`/words/${post.slug}`}>
+                                <h2 className="tracking-tighter font-serif italic font-medium">{post.title}</h2>
+                                <p className="text-sm tracking-tight">{post.date.toLocaleDateString()}</p>
+                            </Link>
+                        )}
+                    </div>
+                </div>
             </NavigationWrapper >
-        </main >
+        </main>
     );
 }
