@@ -4,10 +4,32 @@ import { redirect } from 'next/navigation';
 import { Text, Highlight, CodeBlock } from '@/components/text';
 import React from 'react';
 import Markdown from 'react-markdown';
+import { Metadata, ResolvingMetadata } from 'next';
 
 interface WordsPageProps {
     params: {
         slug: string;
+    }
+}
+
+export async function generateMetadata(
+    { params: { slug } }: WordsPageProps,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    // Fetch blog data based on the slug
+    // Render the blog content
+    const post = getPostBySlug(slug);
+
+    if (!post)
+        return {
+            title: 'Niclas Berger | Not Found',
+        }
+
+    const firstLine = post.content.split('\n').filter(line => line.length > 3)[0];
+
+    return {
+        title: `Niclas Berger | ${post.title}`,
+        description: firstLine,
     }
 }
 

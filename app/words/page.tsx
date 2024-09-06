@@ -2,6 +2,12 @@ import { NavigationWrapper } from "@/components/navigation-wrapper";
 import { getSortedPostsData } from "@/lib/markdown";
 import Link from "next/link";
 import { Highlight, Text } from "@/components/text";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: 'Niclas Berger | My Words',
+    description: 'Read about some interesting stuff, that I wrote, here.',
+}
 
 export default async function Words() {
     const posts = getSortedPostsData();
