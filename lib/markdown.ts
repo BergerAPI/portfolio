@@ -34,8 +34,6 @@ export function getSortedPostsData() {
 export function getPostBySlug(slug: string): PostType | null {
     const postPath = path.join(postsDirectory, `${slug}.md`);
 
-    console.log(postPath);
-
     // Checking whether the file exists
     if (!fs.existsSync(postPath))
         return null;
