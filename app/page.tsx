@@ -12,7 +12,7 @@ export default function Home() {
 
             <Text>
               Hello there! I am <Highlight>Niclas</Highlight>. Currently a <Highlight>part-time software engineer</Highlight> studying <Highlight>economics</Highlight>.
-              Working at <Highlight>GISA GmbH in Halle, Germany</Highlight>. Sometimes coding something and contibuting to <Highlight>open-source</Highlight>.
+              Working at <Highlight>GISA GmbH in Halle, Germany</Highlight>. Sometimes coding something and contributing to <Highlight>open-source</Highlight>.
               Trying to be the best version of myself.
             </Text>
           </section>
