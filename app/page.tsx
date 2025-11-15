@@ -2,6 +2,7 @@ import { NavigationWrapper } from "@/components/navigation-wrapper";
 import Link from "next/link";
 import { Highlight, Text } from "@/components/text";
 import { getSortedPostsData } from "@/lib/markdown";
+import { CornerDownLeft } from "lucide-react";
 
 export default function Home() {
   const posts = getSortedPostsData();
@@ -23,11 +24,15 @@ export default function Home() {
           <section>
             <h2 className="font-bold tracking-tighter font-serif italic">Sometimes I write...</h2>
 
-            <div className="grid mt-2 gap-2 grid-cols-1 sm:grid-cols-2">
+            <div className="grid mt-2 gap-4 grid-cols-1 sm:grid-cols-2">
               {posts.map(post =>
-                <Link key={post.title} href={`/words/${post.slug}`}>
-                  <h2 className="tracking-tighter font-serif italic font-medium">{post.title}</h2>
-                  <p className="text-sm tracking-tight">{post.date.toLocaleDateString()}</p>
+                <Link key={post.title} href={`/words/${post.slug}`} className="flex justify-between items-center">
+                  <div>
+                    <h2 className="tracking-tighter font-serif italic font-medium">{post.title.length > 35 ? `${post.title.slice(0, 35)}...` : post.title}</h2>
+                    <p className="text-sm tracking-tight">{post.date.toLocaleDateString()}</p>
+                  </div>
+
+                  <CornerDownLeft className="w-4 h-4" />
                 </Link>
               )}
             </div>

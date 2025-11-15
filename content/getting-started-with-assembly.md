@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Assembly'
-date: '2023-17-08'
+date: '2023-08-17'
 ---
 
 A while ago I got curious and started to wonder how computers actually work. The

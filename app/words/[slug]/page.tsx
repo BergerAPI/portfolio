@@ -3,22 +3,21 @@ import { getPostBySlug } from '@/lib/markdown';
 import { redirect } from 'next/navigation';
 import { Text, Highlight, CodeBlock } from '@/components/text';
 import React from 'react';
-import Markdown from 'react-markdown';
 import { Metadata, ResolvingMetadata } from 'next';
 
 interface WordsPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    }
+    }>
 }
 
 export async function generateMetadata(
-    { params: { slug } }: WordsPageProps,
+    { params }: WordsPageProps,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     // Fetch blog data based on the slug
     // Render the blog content
-    const post = getPostBySlug(slug);
+    const post = await getPostBySlug((await params).slug);
 
     if (!post)
         return {
@@ -28,29 +27,26 @@ export async function generateMetadata(
     const firstLine = post.content.split('\n').filter(line => line.length > 3)[0];
 
     return {
-        title: `Niclas Berger | ${post.title}`,
+        title: `${post.title} | Niclas Berger`,
         description: firstLine,
     }
 }
 
-export default function WordsPage({ params: { slug } }: WordsPageProps) {
+export default async function WordsPage({ params }: WordsPageProps) {
     // Fetch blog data based on the slug
     // Render the blog content
-    const post = getPostBySlug(slug);
+    const post = await getPostBySlug((await params).slug);
 
     if (!post)
         redirect('/words');
 
     return (
         <main className="lg:flex justify-center">
-            <NavigationWrapper linkText="Words" href="/words">
-                <div className="w-full">
+            <NavigationWrapper linkText="Words" href="/">
+                <div className="w-full mb-80">
                     <h1 className="font-bold tracking-tighter font-serif italic">{post.title}</h1>
 
-                    <Markdown components={{
-                        p: Text,
-                        strong: Highlight,
-                    }} className={"prose"}>{post.content}</Markdown>
+                    <div className={"prose"} dangerouslySetInnerHTML={{ __html: post.content }}></div>
                 </div>
             </NavigationWrapper >
         </main>
