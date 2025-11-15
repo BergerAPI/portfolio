@@ -1,8 +1,11 @@
 import { NavigationWrapper } from "@/components/navigation-wrapper";
 import Link from "next/link";
 import { Highlight, Text } from "@/components/text";
+import { getSortedPostsData } from "@/lib/markdown";
 
 export default function Home() {
+  const posts = getSortedPostsData();
+
   return (
     <main className="flex justify-center">
       <NavigationWrapper>
@@ -20,8 +23,16 @@ export default function Home() {
           <section>
             <h2 className="font-bold tracking-tighter font-serif italic">Sometimes I write...</h2>
 
-            <Text>If you want to read some words of mine, feel free to check out my <Highlight><Link className="underline" href="/words">words</Link></Highlight>.</Text>
+            <div className="grid mt-2 gap-2 grid-cols-1 sm:grid-cols-2">
+              {posts.map(post =>
+                <Link key={post.title} href={`/words/${post.slug}`}>
+                  <h2 className="tracking-tighter font-serif italic font-medium">{post.title}</h2>
+                  <p className="text-sm tracking-tight">{post.date.toLocaleDateString()}</p>
+                </Link>
+              )}
+            </div>
           </section>
+
         </div>
       </NavigationWrapper >
     </main >
