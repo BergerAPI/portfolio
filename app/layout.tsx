@@ -35,8 +35,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>
-        <div id="root" className="px-6 pt-32 text-slate-600 bg-gray-100 min-h-screen">
+      <body className="bg-gray-100">
+        <div id="root" className="px-6 pt-32 text-slate-600 min-h-screen">
           {children}
         </div>
       </body>
